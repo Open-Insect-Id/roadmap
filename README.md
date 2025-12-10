@@ -1,11 +1,17 @@
 # Roadmap
 
 ---
+
 ## Légende
+
 ✅ = complété
+
 ☑️ = en cours
+
 🆘 = besoin d'aide
+
 ❌ = prévu
+
 ---
 
 ## Modèle de reconnaissance des insectes :
