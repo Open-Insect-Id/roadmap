@@ -14,7 +14,7 @@
 
 ---
 
-## Modèle de reconnaissance des insectes :
+## Modèle :
 
 ### Dataset
 
@@ -32,4 +32,28 @@
 - [✅] Application de transformation pour augmenter artificiellement la taille du dataset train
 - [✅] Construction d'un dictionnaire représentant la hiérarchie, avec les infos de localisation
 - [✅] Apprentissage de la théorie sur le finetune du modèle MobileNet v3
-- [☑️] Entrainement sur le dataset train-mini 
+- [☑️] Entrainement sur le dataset train-mini
+
+## Base de données :
+
+- [❌] Création d'une base de données basée sur le dataset
+- [❌] Stocker des informations sur les espèces
+- [❌] Enrichir la base de données avec des données externes, par exemple Wikipédia
+- [❌] Stocker les données de localisation de chaque image du dataset
+
+## Application Android :
+
+- [🆘] Création d'une appli avec Kivy
+- [❌] Gestion de la caméra
+- [❌] Gestion de la galerie
+- [❌] Export vers un ordinateur
+- [❌] Transfert
+
+## Application Desktop :
+
+- [❌] Création d'une appli avec CustomTkinter
+- [❌] Création d'une API pour permettre la communication entre l'ordinateur et le téléphone
+- [❌] Gérer le modèle (téléchargement/installation/utilisation avec `onnx-runtime`)
+- [❌] Interface permettant une interaction avec le modèle de reconnaissance d'insectes
+- [❌] Carte du monde permettant la visualisation graphique du dataset, avec un marqueur par image
+- [❌] Biographie Wikipédia de l'espèce/famille
