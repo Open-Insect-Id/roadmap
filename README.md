@@ -16,14 +16,14 @@
 
 ## Modèle :
 
-### Dataset
+### Dataset @YoannDev90
 
 - [✅] Téléchargement depuis le repo iNaturalist 2021
 - [✅] Préparation (gestion des performances avec `ijson`)
 - [✅] Filtrage pour ne conserver que les insectes
 - [✅] Upload sur Kaggle, solution gratuite similaire à Google Colab
 
-### Modèle
+### Modèle @YoannDev90
 
 - [✅] Vérification des données sur Kaggle
 - [✅] Suppression des quelques fichiers corrompus par les interruptions pendant le transfert
@@ -34,14 +34,14 @@
 - [✅] Apprentissage de la théorie sur le finetune du modèle MobileNet v3
 - [☑️] Entrainement sur le dataset train-mini
 
-## Base de données :
+## Base de données : @Elnix90 Lucky Nath
 
 - [❌] Création d'une base de données basée sur le dataset
 - [❌] Stocker des informations sur les espèces
 - [❌] Enrichir la base de données avec des données externes, par exemple Wikipédia
 - [❌] Stocker les données de localisation de chaque image du dataset
 
-## Application Android :
+## Application Android : @Elnix90 Lucky
 
 - [🆘] Création d'une appli avec Kivy
 - [☑️] Création d'une appli de test en kotlin (plus facile) qui servira de solution de secours si nous n'arrivons pas à créer d'application android avec Kivy ou d'application pour ordinateur
@@ -50,7 +50,7 @@
 - [❌] Export vers un ordinateur
 - [❌] Transfert
 
-## Application Desktop :
+## Application Desktop : Nath
 
 - [❌] Création d'une appli avec CustomTkinter
 - [❌] Création d'une API pour permettre la communication entre l'ordinateur et le téléphone
