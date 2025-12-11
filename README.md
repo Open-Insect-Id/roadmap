@@ -44,7 +44,7 @@
 ## Application Android :
 
 - [🆘] Création d'une appli avec Kivy
-- [❌] Création d'une appli de test en kotlin (plus facile) qui servira de solution de secours si nous n'arrivons pas à créer d'application android avec Kivy ou d'application pour ordinateur
+- [☑️] Création d'une appli de test en kotlin (plus facile) qui servira de solution de secours si nous n'arrivons pas à créer d'application android avec Kivy ou d'application pour ordinateur
 - [❌] Gestion de la caméra
 - [❌] Gestion de la galerie
 - [❌] Export vers un ordinateur
