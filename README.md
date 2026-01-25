@@ -8,6 +8,8 @@
 
 ☑️ = en cours
 
+⏳ = En attente
+
 🆘 = besoin d'aide
 
 ❌ = prévu
@@ -34,25 +36,32 @@
 - [✅] Apprentissage de la théorie sur le finetune du modèle MobileNet v3
 - [☑️] Entrainement sur le dataset train-mini
 
-## Base de données : @Elnix90 Lucky Nath
+## Base de données : @Elnix90 @LuckyTheCookie Nath
 
-- [❌] Création d'une base de données basée sur le dataset
-- [❌] Stocker des informations sur les espèces
-- [❌] Enrichir la base de données avec des données externes, par exemple Wikipédia
-- [❌] Stocker les données de localisation de chaque image du dataset
+- [⏳] Création d'une base de données basée sur le dataset
+- [⏳] Stocker des informations sur les espèces
+- [⏳] Enrichir la base de données avec des données externes, par exemple Wikipédia
+- [⏳] Stocker les données de localisation de chaque image du dataset
 
-## Application Android : @Elnix90 Lucky
+## Application Android : @Elnix90 @LuckyTheCookie
 
-- [🆘] Création d'une appli avec Kivy
-- [☑️] Création d'une appli de test en kotlin (plus facile) qui servira de solution de secours si nous n'arrivons pas à créer d'application android avec Kivy ou d'application pour ordinateur
+- [🆘] Création d'une appli mobile python
+    - Nous avons des difficultés pour l'accès à la caméra. L'utilisation de Flet ne supporte pas l'accès à la caméra pour le moment, et Kivy semble compliqué à prendre en main et a des problèmes de compatibilité avec les versions récentes d'Android.
+    - Nous envisageons de créer une application de test en Kotlin pour Android, qui pourrait servir de solution de secours 
+    - Nous allons prochainement envisager des recherches vers BeeWare ou essayer une approche différente avec Flet Camera
+    - Approche alternative : créer une PWA (Progressive Web App) avec accès à la caméra via le navigateur web du téléphone.
+
+- [✅] Création d'une appli de test en kotlin (plus facile) qui servira de solution de secours si nous n'arrivons pas à créer d'application android avec Kivy ou d'application pour ordinateur
 - [❌] Gestion de la caméra
 - [❌] Gestion de la galerie
 - [❌] Export vers un ordinateur
 - [❌] Transfert
 
-## Application Desktop : Nath
+## Application Desktop : @LuckyTheCookie Nath
 
-- [❌] Création d'une appli avec CustomTkinter
+- [☑️] Création d'une appli avec CustomTkinter
+    - La création de l'interface est en cours, mais nous avons déjà une base solide.
+
 - [❌] Création d'une API pour permettre la communication entre l'ordinateur et le téléphone
 - [❌] Gérer le modèle (téléchargement/installation/utilisation avec `onnx-runtime`)
 - [❌] Interface permettant une interaction avec le modèle de reconnaissance d'insectes
