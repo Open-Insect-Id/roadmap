@@ -34,6 +34,7 @@
 - [✅] Application de transformation pour augmenter artificiellement la taille du dataset train
 - [✅] Construction d'un dictionnaire représentant la hiérarchie, avec les infos de localisation
 - [✅] Apprentissage de la théorie sur le finetune du modèle MobileNet v3
+- [✅] Entrainement sur le dataset train-mini
 - [☑️] Entrainement sur le dataset train-mini
 
 ## Base de données : @Elnix90 @LuckyTheCookie Nath
@@ -51,7 +52,7 @@
     - Nous allons prochainement envisager des recherches vers BeeWare ou essayer une approche différente avec Flet Camera
     - Approche alternative : créer une PWA (Progressive Web App) avec accès à la caméra via le navigateur web du téléphone.
 
-- [✅] Création d'une appli de test en kotlin (plus facile) qui servira de solution de secours si nous n'arrivons pas à créer d'application android avec Kivy ou d'application pour ordinateur
+- [✅] Création d'une appli de test en Kotlin (plus facile) qui servira de solution de secours si nous n'arrivons pas à créer d'application Android avec Kivy ou d'application desktop
 - [❌] Gestion de la caméra
 - [❌] Gestion de la galerie
 - [❌] Export vers un ordinateur
