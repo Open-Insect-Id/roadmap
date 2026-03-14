@@ -1,28 +1,54 @@
-# Dossier Technique
+# Dossier Technique : Open Insect ID
 
-## Présentation globale du projet
+## 1. Présentation Globale
+**Open Insect ID** est une application desktop intelligente développée en Python dédiée à l'identification automatisée d'insectes. 
 
-Open Insect ID est une **application desktop intelligente** développée en Python qui permet d'identifier des insectes à partir de photos. Le coeur du système est un modèle d'apprentissage automatique (format ONNX) entraîné sur des images d'insectes. L'utilisateur charge une image via l'interface graphique (CustomTkinter) et l'IA propose une identification. Pour enrichir le résultat, l'application interroge l'API GBIF (Global Biodiversity Information Facility) afin de récupérer des informations scientifiques détaillées.
+### Points clés
+- Faciliter la reconnaissance des insectes pour les amateurs de nature.
+- Utilisation d'un modèle d'apprentissage automatique (Deep Learning).
+- Intégration de données scientifiques via l'API GBIF (*Global Biodiversity Information Facility*).
 
-Ce projet est né d'une problématique simple : **faciliter la reconnaissance des insectes pour les amateurs de nature**. L'application vise à être accessible, rapide et informative. Enn combinant l'intelligence artificielle pour la classification d'images et les données ouvertes de GBIF pour fournir des informations fiables sur les espèces identifiées, l'interface a été conçue pour être intuitive.
+---
 
-## Organisation du travail
+## 2. Architecture Technique
 
-L'équipe compte trois membres principaux :
+### Cœur du Système
+- **Modèle IA Classifier** : Architecture **MobileNetV3** exportée au format **ONNX**.
+- **Classification** : Approche taxonomique hiérarchique (Ordre > Famille > Genre > Espèce).
+- **Interface Graphique** : Développée avec **CustomTkinter** pour une expérience utilisateur moderne et intuitive.
 
-- **Yoann** : s'est occupé principalement de la préparation et de l'entraînement du modèle IA sur Kaggle. A l'aide d'un dataset (IL MANQUE LE COPYRIGHT), il a collecté et nettoyé les données, testé différentes architectures et exporté un modèle ONNX utilisable par l'application, et nous a aussi aidé à intégrer ce modèle dans le code Python.
-- **Clovis** et **Lucas** : développeurs de l'application desktop, ont conçu l'architecture Python, intégré le modèle fourni par Yoann, et développé l'interface graphique.
+### Connectivité Mobile (Mobile Connect)
+Pour pallier les limitations des frameworks Python sur mobile (Kivy, Flet), nous avons implémenté une solution hybride :
+- **Serveur Backend** : API légère via **Flask** intégrée à l'application Desktop.
+- **Interface Mobile** : PWA ou interface web accessible via **QR Code**, permettant l'envoi direct de photos depuis la caméra du smartphone vers l'ordinateur via le réseau local.
 
+---
 
-## Étapes du projet
+## 3. Organisation de l'Équipe
 
-Avant toute chose, nous avons du nous occuper du modèle d'intelligence artificielle. Nous avons pu trouver sur Github un dataset d'images d'insectes, dérivé de la compétition iNaturalist 2021 organisée par Visipedia (CC BY-NC). Ensuite, Yoann s'est occupé de filtrer ce modèle car celui ci contenait également des images d'animaux, de plantes, de mollusques,... Il a ensuite importé sur Kaggle où il a enrichi ce dataset : il a ajouté des images supplémentaires, appliqué des rotations, modifié les couleurs, etc., afin d'augmenter artificiellement la diversité des exemples et améliorer l'efficacité et l'accuracy du modèle. Le modèle utilise MobileNetV3 avec des prédictions séparées par niveau taxonomique, permettant une prédiction hiérarchique efficace.
-Il a donc commencé par produire la v1 du modèle, puis a itéré (très longtemps) pour l'améliorer, jusqu'à obtenir une version satisfaisante. La première version de notre modèle n'était pas très performante, mais elle était suffisante pour les tests initiaux de l'application. 
-Nous avons ensuite débuté par une phase de prototypage rapide. A l'aide d'un simple script Python, nous avons testé le chargement d'une image et l'appel au modèle IA pour vérifier que les prédictions étaient correctes.
-Ensuite, nous avons poursuivi avec la création d'une base qui nous servira pour plus tard : un fichier de preprocessing, nécessaire pour préparer les images avant de les envoyer au modèle, et un fichier de configuration pour stocker les paramètres globaux. Nous avons ensuite importé le modèle ONNX dans notre projet crée par Yoann.
-Après notre première version de l'application, nous avons intégré une première version d'une carte qui permettait d'afficher la distribution géographique de l'espèce identifiée, en utilisant des données de geolocalisation incluses dans le dataset d'entraînement du modèle. Cependant, cette méthode n'était pas très efficace, car les données de geolocalisation étaient souvent incomplètes ou imprécises. De plus, cette approche rallongeait considérablement le temps d'exportation du modèle depuis Kaggle, ce qui rendait les itérations très longues. Nous avons donc décidé de changer d'approche et d'utiliser l'API GBIF pour récupérer des données de distribution plus précises et à jour. Enfin, nous avons continué à améliorer l'interface graphique, en ajoutant de nombreuses fonctionnalités, comme une galerie d'images pour chaque espèce par exemple. Yoann a également travaillé sur l'amélioration de la performance du modèle, et nous avons réussi à atteindre un temps de prédiction très rapide, et un taux d'accuracy supérieur à 77%.
+- **Yoann** : 
+    - Préparation du dataset (nettoyage, filtrage iNaturalist 2021).
+    - Entraînement et optimisation du modèle sur Kaggle (Data Augmentation).
+    - Exportation et intégration du modèle ONNX.
+- **Clovis & Lucas** : 
+    - Conception de l'architecture logicielle Python.
+    - Développement de l'interface graphique (GUI).
+    - Intégration des APIs externes (GBIF, Wikipedia).
+    - Implémentation du système de communication Flask/Mobile.
 
-Nous avons également ajouté une fonction Mobile Connect. Celle ci permet à l'utilisateur de connecter son téléphone à l'application, afin de pouvoir charger des images directement depuis son appareil mobile, ce qui rend l'expérience beaucoup plus simple pour prendre des photos d'insectes. Nous avons tout au début commencé par essayer de faire une application mobile en python à l'aide de Kivy, mais nous avons rapidement abandonné cette idée car nous avons rencontré de nombreux problèmes de compatibilité et de performance. Flet a été notre deuxième tentative, mais au moment de la rédaction de ce dossier, Flet ne supportait pas l'accès à la caméra, ce qui était un élément clé pour notre application. Enfin, nous avons essayé avec Beewave, mais nous avions eu des soucis de compilation et de compatibilité avec les différentes versions d'Android (Beewave étant assez vieille). Nous avons finalement décidé de créer une API légère en Flask, qui permet à l'application desktop de communiquer avec un smartphone via le réseau local. Cette solution est plus simple à mettre en place et offre une meilleure compatibilité avec les différents appareils mobiles.
-A l'aide de ce serveur, l'application desktop démarre un serveur Flask en arrière-plan, génère un qr-code que l'utilisateur peut scanner avec son téléphone pour se connecter, et ensuite il peut charger des images depuis son téléphone qui seront automatiquement envoyées à l'application desktop pour analyse. Cette fonctionnalité a été un vrai plus pour l'expérience utilisateur. 
-En parralèlle, bien que ce langage ne soit pas évalué par le jury, Clovis a développé une application mobile entièrement en Kotlin, à des fins de tests. Cette application permet de prendre des photos d'insectes sans avoir besoin de les transférer manuellement sur l'ordinateur. Le modèle est directement intégré dans l'application mobile, ce qui permet d'obtenir des résultats sans avoir besoin d'un ordinateur ou d'une connexion internet. Cependant, cette application est encore en développement, et la langage utilisé n'est pas au programme de NSI. Elle ne permet cependant que l'analyse d'images, sans les fonctionnalités supplémentaires de l'application desktop (la carte par exemple).
-Et pour finir, nous avons corrigé de nombreux bugs, amélioré un peu l'interface, les icones,...
+---
+
+## 4. Étapes de Développement
+
+1.  **Phase IA** : Filtrage du dataset iNaturalist (extraction des insectes uniquement) et itérations d'entraînement pour atteindre une précision de **77%**.
+2.  **Prototypage** : Validation du moteur d'inférence ONNX via des scripts simplifiés.
+3.  **Core Logic** : Développement des modules de preprocessing d'images et de configuration globale.
+4.  **Enrichissement de Données** :
+    - Abandon de la géolocalisation interne (trop lourde/imprécise).
+    - Migration vers l'**API GBIF** pour des cartes de distribution dynamiques et précises.
+    - Intégration de galeries visuelles et fiches Wikipedia.
+5.  **Optimisation** : Correction de bugs, amélioration du temps de prédiction et polissage de l'interface (icônes, ergonomie).
+
+---
+
+En marge du programme NSI, une application native **Kotlin** a été développée par Clovis à des fins de tests comparatifs. Elle permet une exécution 100% locale du modèle sur Android, bien que les fonctionnalités d'enrichissement (cartes, biographie) restent pour l'instant l'exclusivité de la version Desktop.
