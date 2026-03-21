@@ -43,8 +43,8 @@ Python n'est pas un langage pratique à utiliser pour réaliser des applications
 
 ### État d'avancement
 - [x] **Solution de secours** : Création d'une appli de test en Kotlin par Clovis.
-- [ ] Gestion de la caméra
-- [ ] Gestion de la galerie
+- [x] Gestion de la caméra
+- [x] Gestion de la galerie
 - [ ] Export vers un ordinateur
 - [ ] Transfert
 
