@@ -50,7 +50,7 @@ Python n'est pas un langage pratique à utiliser pour réaliser des applications
 
 ---
 
-## Application Desktop : Lucas / Clovis / Yoann / Nathanaël
+## Application Desktop : Lucas / Clovis / Yoann
 
 - [x] Création d'une appli avec **CustomTkinter**
 - [x] Création d'une **API** pour permettre la communication entre l'ordinateur et le téléphone
